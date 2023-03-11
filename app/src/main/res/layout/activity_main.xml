@@ -7,34 +7,110 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:id="@+id/editSecondsOnLap"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        android:id="@+id/editTextHowManySeconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+
+        android:clickable="false"
+        android:inputType="textPersonName"
+        android:text="How many seconds"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/lenearHowManySeconds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/editTextHowManySeconds">
+
+        <EditText
+            android:id="@+id/editSecondsOnLap"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextHowManySeconds"
+            />
+
+        <Button
+            android:id="@+id/add30Second"
+            android:layout_height="wrap_content"
+            android:text="+30 sec"
+            android:layout_width="70dp"
+            android:layout_marginLeft="10dp"
+
+            />
+        <Button
+            android:id="@+id/set1minute"
+            android:layout_height="wrap_content"
+            android:text="1 min"
+            android:layout_marginLeft="10dp"
+            android:layout_width="70dp"
+            />
+        <Button
+            android:id="@+id/set2minute"
+            android:layout_height="wrap_content"
+            android:text="2 min"
+            android:layout_marginLeft="10dp"
+            android:layout_width="70dp"
+            />
+    </LinearLayout>
+
+
 
     <EditText
         android:id="@+id/editTest"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editSecondsOnLap" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCurrentSecond"
+        tools:ignore="UnknownId" />
 
-    <Button
-        android:id="@+id/button"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/editTest">
+
+        <Button
+            android:id="@+id/buttonStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:width="100dp"
+            android:text="Start" />
+
+        <Button
+            android:id="@+id/buttonStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="100dp"
+            android:text="Stop"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+    <EditText
+        android:id="@+id/editTextCurrentSecond"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:width="200dp"
-        android:text="Button"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTest" />
+        android:layout_marginTop="68dp"
 
-    <Button
-        android:id="@+id/add30Second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="@+id/editSecondsOnLap"
-        app:layout_constraintStart_toEndOf="@+id/editSecondsOnLap"
-        app:layout_constraintTop_toTopOf="@+id/editSecondsOnLap" />
+        android:inputType="textPersonName"
+        android:text="Current second"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lenearHowManySeconds" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
