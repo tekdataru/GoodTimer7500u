@@ -15,51 +15,94 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val timer = object: CountDownTimer(1000000, 1000) {
+        val timer = object : CountDownTimer(1000000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 secondsAll++
-                binding.editTest.setText(secondsAll.toString())
+                binding.editCurrentSecond.setText(secondsAll.toString())
 
                 //if (binding.editTest.text.equals(binding.editSecondsOnLap.text)) {
-                if (binding.editTest.text.toString().equals(binding.editSecondsOnLap.text.toString())){
+                if (binding.editCurrentSecond.text.toString()
+                        .equals(binding.editSecondsOnLap.text.toString())
+                ) {
                     //binding.add30Second.setText("asdf")
                     onFinish()
+                } else if (!binding.editSoundEverySecond.text.isEmpty()) {
+                    if ((secondsAll % binding.editSoundEverySecond.text.toString().toInt()) == 0) {
+                        playSoundCoin()
+                    }
                 }
             }
 
             override fun onFinish() {
                 playSoundEnd()
                 cancel()
-                binding.editTest.text.clear()
+                binding.editCurrentSecond.text.clear()
                 //binding.button.setText("Gotovo!")
             }
         }
 
         binding.buttonStart.setOnClickListener {
             playSoundCoin()
-            binding.editTest.setText("10")
+            binding.editCurrentSecond.setText("10")
 
             timer.cancel()
             timer.start()
             secondsAll = 0
         }
 
-        binding.add30Second.setOnClickListener {
-            val buf = if (binding.editSecondsOnLap.text.isEmpty()) {"0"} else binding.editSecondsOnLap.text.toString()
+        binding.buttonAdd30Second.setOnClickListener {
+            val buf = if (binding.editSecondsOnLap.text.isEmpty()) {
+                "0"
+            } else binding.editSecondsOnLap.text.toString()
             binding.editSecondsOnLap.setText((buf.toInt() + 30).toString())
         }
 
+        binding.buttonSet1minute.setOnClickListener {
+            binding.editSecondsOnLap.setText("60")
+            playSoundCoin()
+            binding.editCurrentSecond.setText("10")
+
+            timer.cancel()
+            timer.start()
+            secondsAll = 0
+        }
+
+        binding.buttonSet2minute.setOnClickListener {
+            binding.editSecondsOnLap.setText("120")
+            playSoundCoin()
+            binding.editCurrentSecond.setText("10")
+
+            timer.cancel()
+            timer.start()
+            secondsAll = 0
+        }
+
+        binding.buttonSet0Second.setOnClickListener {
 
 
+            binding.editSecondsOnLap.setText("")
+
+            timer.cancel()
+
+            secondsAll = 0
+        }
+
+        binding.buttonStop.setOnClickListener {
+
+
+            timer.cancel()
+            //secondsAll = 0
+            binding.editCurrentSecond.setText("")
+        }
 
 
     }
 
-    fun playSoundEnd(){
+    fun playSoundEnd() {
         MediaPlayer.create(this@MainActivity, R.raw.sfx).start()
     }
 
-    fun playSoundCoin(){
+    fun playSoundCoin() {
         MediaPlayer.create(this@MainActivity, R.raw.moneta).start()
     }
 

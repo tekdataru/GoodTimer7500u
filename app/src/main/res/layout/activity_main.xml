@@ -10,7 +10,7 @@
         android:id="@+id/editTextHowManySeconds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="30dp"
 
         android:clickable="false"
         android:inputType="textPersonName"
@@ -24,60 +24,89 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/editTextHowManySeconds">
+        app:layout_constraintTop_toBottomOf="@id/editTextHowManySeconds"
+        android:layout_marginTop="10dp"
+        >
+
+
+
+        <Button
+            android:id="@+id/buttonSet0Second"
+            android:text="0"
+            android:layout_height="57dp"
+            android:layout_width="45dp"
+            android:layout_marginLeft="10dp"
+
+            />
 
         <EditText
             android:id="@+id/editSecondsOnLap"
             android:layout_width="70dp"
             android:layout_height="50dp"
-
-
+            android:layout_marginLeft="10dp"
+            android:inputType="number"
+            android:text="90"
+            android:textAlignment="center"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextHowManySeconds"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/editTextHowManySeconds" />
 
         <Button
-            android:id="@+id/add30Second"
+            android:id="@+id/buttonAdd30Second"
             android:layout_height="wrap_content"
             android:text="+30 sec"
-            android:layout_width="70dp"
+            android:layout_width="65dp"
             android:layout_marginLeft="10dp"
 
             />
         <Button
-            android:id="@+id/set1minute"
-            android:layout_height="wrap_content"
+            android:id="@+id/buttonSet1minute"
+            android:layout_height="57dp"
+            android:layout_width="65dp"
             android:text="1 min"
             android:layout_marginLeft="10dp"
-            android:layout_width="70dp"
+
             />
         <Button
-            android:id="@+id/set2minute"
-            android:layout_height="wrap_content"
-            android:text="2 min"
+            android:id="@+id/buttonSet2minute"
+            android:layout_height="57dp"
+            android:layout_width="65dp"
             android:layout_marginLeft="10dp"
-            android:layout_width="70dp"
+            android:text="2 min"
+
             />
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/editTextCurrentSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
 
+        android:inputType="textPersonName"
+        android:text="Current second"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lenearHowManySeconds" />
 
     <EditText
-        android:id="@+id/editTest"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/editCurrentSecond"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextCurrentSecond"
-        tools:ignore="UnknownId" />
+        android:textAlignment="center"
+        android:textSize="48sp"
+        />
 
     <LinearLayout
+        android:id="@+id/lenearStartStop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/editTest">
+        app:layout_constraintTop_toBottomOf="@id/editCurrentSecond">
 
         <Button
             android:id="@+id/buttonStart"
@@ -97,20 +126,52 @@
 
     </LinearLayout>
 
-
-
-
-
-    <EditText
-        android:id="@+id/editTextCurrentSecond"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/lenearSoundEverySecond"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/lenearStartStop"
+        android:layout_marginTop="60dp">
 
-        android:inputType="textPersonName"
-        android:text="Current second"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lenearHowManySeconds" />
+
+        <EditText
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:background="@null"
+            android:inputType="textPersonName"
+            android:text="Sound every"
+            android:textAlignment="textEnd" />
+
+
+        <EditText
+            android:id="@+id/editSoundEverySecond"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:text="30"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextHowManySeconds" />
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:background="@null"
+            android:inputType="textPersonName"
+            android:text="second"
+            android:textAlignment="textStart" />
+
+    </LinearLayout>
+
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
